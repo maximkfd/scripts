@@ -1,0 +1,1 @@
+for p in `adb shell pm list package | awk -F"package:" '{print $2}'`; do echo -n "$p: "; adb shell dumpsys package $p | grep -i versionName | awk -F"=" '{print $2}'; done > log.txt
